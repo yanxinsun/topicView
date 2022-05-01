@@ -1,0 +1,1 @@
+<view class="content"><image class="logo" src="/static/logo.png"></image><text>首页</text><view><navigator url="/subpages/chat/chat">前往和知心姐姐聊天</navigator></view><child vue-id="8dd740cc-1" msg="{{title}}" data-event-opts="{{[['^tongxun',[['fun2']]]]}}" bind:tongxun="__e" bind:__l="__l"></child></view>

@@ -1,0 +1,1 @@
+<view><text class="red">我是组件</text><view>{{''+msg+''}}</view><button type="default" data-event-opts="{{[['tap',[['toFather',['$event']]]]]}}" bindtap="__e">点我</button></view>

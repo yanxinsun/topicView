@@ -1,0 +1,10 @@
+{
+	// 请直接复制iconfont官网提供的项目图标Symbol链接
+    "symbol_url": "http://at.alicdn.com/t/font_3369673_6e83flcdd65.js",
+	// 生成的icon文件保存目录。每次生成前，都会清空该目录。
+    "save_dir": "./src/iconfont",
+	//去除前缀，默认为icon
+    "trim_icon_prefix": "icon",
+	// 默认图标大小，默认为32rpx，必须带单位。支持px、rpx、em, rem等css常用单位。
+    "default_icon_size": "32rpx"
+}
