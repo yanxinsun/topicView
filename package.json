@@ -1,5 +1,10 @@
 {
   "devDependencies": {
+    "sass": "^1.51.0",
+    "sass-loader": "^10.2.1",
     "uni-iconfont-plugin": "^1.0.2"
+  },
+  "dependencies": {
+    "uview-ui": "^2.0.31"
   }
 }
