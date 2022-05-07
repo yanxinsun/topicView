@@ -6,7 +6,8 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app",
+				// "navigationBarTitleText": "uni-app",
+				"navigationStyle":"custom",
 				//允许底部下拉刷新
 				"enablePullDownRefresh": true
 			}
@@ -18,14 +19,7 @@
 				"navigationBarTitleText": "页面未找到",
 				"enablePullDownRefresh": false
 			}
-		}, {
-			"path": "pages/list/list",
-			"style": {
-				"navigationBarTitleText": "通讯录",
-				"enablePullDownRefresh": false
-			}
-
-		}, {
+		},  {
 			"path": "pages/me/me",
 			"style": {
 				"navigationBarTitleText": "我的",
@@ -33,14 +27,25 @@
 			}
 
 		}
+        
         ,{
-			"path": "pages/history/history",
-			"style": {
-				"navigationBarTitleText": "我的",
-				"enablePullDownRefresh": false
-			}
-
-		}
+            "path" : "pages/webview/webview",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/feeds/feeds",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"subPackages": [{
 		"root": "subpages",
@@ -52,6 +57,21 @@
 				"enablePullDownRefresh": false
 			}
 
+		},
+		{
+			"path": "list/list",
+			"style": {
+				"navigationBarTitleText": "list",
+				"enablePullDownRefresh": false
+			}
+		} 
+		,{
+			"path": "history/history",
+			"style": {
+				"navigationBarTitleText": "历史记录",
+				"enablePullDownRefresh": false
+			}
+		
 		}]
 	}],
 	"globalStyle": {
@@ -69,11 +89,11 @@
 			"pagePath": "pages/index/index",
 			"text": "首页"
 		}, {
-			"pagePath": "pages/list/list",
-			"text": "通讯录"
-		}, {
 			"pagePath": "pages/me/me",
 			"text": "我的"
+		},{
+			"pagePath": "pages/feeds/feeds",
+			"text": "精彩"
 		}]
 	}
 }
