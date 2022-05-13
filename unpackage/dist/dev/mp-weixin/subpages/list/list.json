@@ -6,6 +6,7 @@
     "u-sticky": "/node-modules/uview-ui/components/u-sticky/u-sticky",
     "u-tabs": "/node-modules/uview-ui/components/u-tabs/u-tabs",
     "u-list": "/node-modules/uview-ui/components/u-list/u-list",
-    "u-list-item": "/node-modules/uview-ui/components/u-list-item/u-list-item"
+    "u-list-item": "/node-modules/uview-ui/components/u-list-item/u-list-item",
+    "u-empty": "/node-modules/uview-ui/components/u-empty/u-empty"
   }
 }

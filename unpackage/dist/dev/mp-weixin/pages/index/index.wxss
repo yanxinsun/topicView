@@ -25,8 +25,8 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.box {
-  padding-top: 70px;
+.box.data-v-57280228 {
+  padding-top: 70rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -41,36 +41,31 @@
   -webkit-justify-content: center;
           justify-content: center;
 }
-.box .search-box {
+.box .search-box.data-v-57280228 {
   width: 90%;
 }
-.box .photo-box {
-  margin-top: 60rpx;
-  width: 40px;
-  height: 40px;
-  background: red;
-  line-height: 40\px;
-  top: 20rpx;
-  right: 110rpx;
-}
-.box .photo-box .photo-icon {
-  font-size: 40px;
-}
-.box .advertising-box {
+.box .advertising-box.data-v-57280228 {
   width: 90%;
-  margin-top: 10px;
+  margin-top: 10rpx;
 }
-.box .advertising-box swiper {
+.box .advertising-box swiper.data-v-57280228 {
   height: calc(750rpx / 3);
 }
-.box .card-header {
-  background: red;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
+.box .topic-box.data-v-57280228 {
+  width: 100%;
+  background: #FFFFFF;
 }
-.box .card-header .card-one .img {
-  width: 100rpx;
-  height: 100rpx;
+.box .topic-box .topic-list.data-v-57280228 {
+  overflow: hidden;
+  height: 200rpx;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10rpx;
+}
+.box .topic-box .topic-list .topic-item.data-v-57280228 {
+  height: 240rpx;
+  padding: 0 0 10rpx 0;
+  border-bottom: 1px solid #999999;
+  color: red;
 }
 

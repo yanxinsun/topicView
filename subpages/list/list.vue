@@ -1,19 +1,18 @@
 <template>
 	<view class="list-box">
-		<view class="search-box">
-			<u-search placeholder="请输入搜索内容" v-model="searchKeyword" @custom="toSearchTitle"></u-search>
-		</view>
-		<u-sticky bgColor="#fff">
-			<u-tabs :list="list1"></u-tabs>
-		</u-sticky>
+		<view class="search-box"><u-search placeholder="请输入搜索内容" v-model="searchKeyword" @custom="toSearchTitle"></u-search></view>
+		<u-sticky bgColor="#fff"><u-tabs :list="list1"></u-tabs></u-sticky>
 		<view class="content-box">
 			<u-list @scrolltolower="scrolltolower">
-				<u-list-item v-for="(item, index) in topicList" :key="index">
-					<view class="content-list">
-						<text class="topic-title">{{item.title.slice(0,24)}}</text>
-						<text class="topic-content">{{item.content.slice(0,80)}}</text>
-					</view>
-				</u-list-item>
+				<view v-if="topicList.length != 0">
+					<u-list-item v-for="(item, index) in topicList" :key="index">
+						<view class="content-list">
+							<text class="topic-title">{{ item.title.slice(0, 24) }}</text>
+							<text class="topic-content">{{ item.content.slice(0, 80) }}</text>
+						</view>
+					</u-list-item>
+				</view>
+				<view v-else><u-empty mode="data" icon="http://cdn.uviewui.com/uview/empty/data.png"></u-empty></view>
 			</u-list>
 		</view>
 		<!-- <text>通讯录</text>
@@ -29,13 +28,7 @@ import { postTopicTitle } from '@/config/api.js';
 export default {
 	data() {
 		return {
-			topicList: [
-			{
-				"title":"标题1了恐惧。收到；弗兰克个。等孙哥撒了恐惧啊个，阿拉丁快放假了空间感，收到啦看结果。",
-				"content":"都是啊第三方了恐惧啊地方。都送给了恐惧俄剖人。阿道夫；辣椒等孙哥；哦两岸三地；法国快乐；看到过恐惧倒过来看结果啊谁都 i。阿道夫；屁股。史蒂夫立即离开的结果，都给了恐惧恐惧老公，阿斯顿了发看就是的理工1"
-			}
-				
-			],
+			topicList: [],
 			urls: [
 				'https://cdn.uviewui.com/uview/album/1.jpg',
 				'https://cdn.uviewui.com/uview/album/2.jpg',
@@ -67,22 +60,26 @@ export default {
 				{
 					name: 'es6'
 				}
-			]
+			],
+			searchKeyword: ''
 		};
 	},
 	computed: {
 		...mapState(['userName'])
 	},
-	onLoad() {
-		this.loadmore();
+	onLoad(option) {
+		// this.loadmore();
+		this.searchKeyword = option.searchKey;
+		this.toSearchTitle();
+		console.log('333333', this.topicList.length);
 	},
 	methods: {
 		...mapActions(['login', 'logout']),
 		//根据搜索标题查询题目及内容
-		async toSearchTitle() {
-			const topicResp = await postTopicTitle({ title: this.searchKeyword, custom: { auth: true } })
-					console.log('topicResp',topicResp)
-					this.topicList = topicResp.topicInfo
+		async toSearchTitle(searchKeyword) {
+			const topicResp = await postTopicTitle({ title: this.searchKeyword, custom: { auth: true } });
+			console.log('topicResp', topicResp);
+			this.topicList = topicResp.topicInfo;
 		},
 		scrolltolower() {
 			this.loadmore();
@@ -99,39 +96,35 @@ export default {
 </script>
 
 <style lang="scss">
-
-.list-box{
+.list-box {
 	display: flex;
-	flex-direction:column;
+	flex-direction: column;
 	background: #f0f0f0;
-	.search-box{
-		background: #FFFFFF;
-		padding: 10rpx
+	.search-box {
+		background: #ffffff;
+		padding: 10rpx;
 	}
-	.content-box{
+	.content-box {
 		width: 95%;
 		margin: 0 auto;
 		margin-top: 20rpx;
-		.content-list{
+		.content-list {
 			margin-bottom: 20rpx;
 			display: flex;
-			flex-direction:column;
-			background: #FFFFFF;
+			flex-direction: column;
+			background: #ffffff;
 			border-radius: 10rpx;
 			padding: 15rpx;
-			.topic-title{
+			.topic-title {
 				font-size: 30rpx;
 				color: #222222;
 			}
-			.topic-content{
+			.topic-content {
 				margin-top: 10rpx;
 				font-size: 26rpx;
 				color: #555555;
 			}
 		}
-		
-		
 	}
 }
-	
 </style>

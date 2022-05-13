@@ -8,26 +8,13 @@
 						style="margin-top: 15px;"
 					>
 						<!-- 注意：由于兼容性差异，如果需要使用前后插槽，nvue下需使用u--input，非nvue下需使用u-input -->
-						<!-- #ifndef APP-NVUE -->
-						<u-input placeholder="请输入搜索内容" v-model="searchKeyword" @focus.stop="toHistoryList">
-						<!-- #endif -->
-						<!-- #ifdef APP-NVUE -->
-						<u--input placeholder="请输入搜索内容" v-model="searchKeyword" @focus.stop="toHistoryList">
-						<!-- #endif -->
+						<u--input placeholder="请输入搜索内容" v-model="searchKeyword" @focus="toHistoryList()"></u--input>
 							<template slot="suffix">
-								
 								<u-icon class="photo-icon" name="photo" @click.stop="checkPhoto()"></u-icon>
 							</template>
-						<!-- #ifndef APP-NVUE -->
-						</u-input>
-						<!-- #endif -->
-						<!-- #ifdef APP-NVUE -->
-						</u--input>
-						<!-- #endif -->
 					</view>
 				</view>
 		</view>
-		
 		<view class="advertising-box">
 			<swiper autoplay="true" :interval="2000" :duration="500" circular="true" indicator-active-color="#fff" easing-function="true" indicator-dots='true'>
 				<swiper-item v-for="(item, index) in bannerList" :key="index">
@@ -38,61 +25,49 @@
 				</swiper-item>
 			</swiper>
 		</view>
-		<view class="card-header">
-			<view class="card-one card-left" @tap="gotoTab('/pages/feeds/feeds')">
-				<image src="@/static/img/image.png" class="img" mode="aspectFill"></image>
-				<view class="iright">
-					<view class="title" @click="clickTest()">
-						个人中心
-					</view>
-				</view>
-			</view>
-			<view class="card-one card-right" @tap="gotoTab('/pages/me/me')">
-				<image src="@/static/img/image.png" class="img" mode="aspectFill"></image>
-				<view class="iright">
-					<view class="title">
-						个人中心
-					</view>
-				</view>
-			</view>
-			
+		<view class="topic-box">
+			<u-list class="topic-list">
+				<u-list-item v-for="(item, index) in topicList" :key="index" class="topic-item">
+					<text class="topic-title" :lines="2" :text="">{{item.title}}</text>
+					<text class="topic-content" :lines="3" :text="item.content"></text>
+				</u-list-item>
+			</u-list>
+
+			</uni-section>
 		</view>
-		<view class="title" @click="clickTest()">
-			个人中心
-		</view>
-		<!-- <navigator url="/subpages/chat/chat">前往和知心姐姐聊天</navigator>
-		<child :msg=title @tongxun='fun2'></child> -->
+
 	</view>
 </template>
 
 <script>
 import Child from '@/components/child.vue';
-import { postMenu, getMenu,postTopicTitle } from '@/config/api.js';
+import { postMenu, getMenu,postTopicHot } from '@/config/api.js';
 export default {
 	data() {
 		return {
 			title: 'Hello',
 			searchKeyword: '',
 			bannerList: [{
-				"url":"/static/img/1.png",
+				"url":"http://img.ssyyxx.xyz/topic/1.png",
 				"link":"http://www.baidu.com"
 			},
 			{
-				"url":"/static/img/2.png",
+				"url":"http://img.ssyyxx.xyz/topic/2.png",
 				"link":"http://www.baidu.com"
 			},
 			{
-				"url":"/static/img/3.png",
+				"url":"http://img.ssyyxx.xyz/topic/3.png",
 				"link":"http://www.baidu.com"
 			},
 			{
-				"url":"/static/img/4.png",
+				"url":"http://img.ssyyxx.xyz/topic/4.png",
 				"link":"http://www.baidu.com"
 			},
 			],
 			tips: '',
 			value: '',
-			url:""
+			topicList:[],
+			indexList: [],
 		};
 	},
 
@@ -113,6 +88,7 @@ export default {
 		uni.$on('quanju', name => {
 			this.title = name;
 		});
+		this.topicListHot()
 	},
 	watch: {
 	      value(newValue, oldValue) {
@@ -120,27 +96,14 @@ export default {
 	      }
 	    },
 	methods: {
+	
 		gotoTab(url){
 			uni.switchTab({
 				url
 			})
 		},
-		clickTest(){
-			console.log(22)
-			// get请求
-			const aa = postTopicTitle({title:'浏览器', custom: { auth: true }}).then(() => {
-				console.log(3333)
-			}).catch(() =>{
-				
-			})
-			console.log('eeee',aa)
-		},
 		
-		fun2(msg) {
-			this.title = msg;
-		},
 		toHistoryList() {
-			console.log(222);
 			uni.navigateTo({
 				url: '/subpages/history/history'
 			});
@@ -155,14 +118,22 @@ export default {
 					console.log(JSON.stringify(res.tempFilePaths));
 				}
 			});
+		},
+
+		//获取热门列表
+		async topicListHot(){
+			console.log('获取热门列表')
+			const topicResp = await postTopicHot({ pageNum: 1,pageSize:10, custom: { auth: true } });
+			console.log('topicResp', topicResp);
+			this.topicList = topicResp.topicInfo;
 		}
 	}
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .box {
-	padding-top: 70px;
+	padding-top: 70rpx;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -170,39 +141,37 @@ export default {
 	.search-box {
 		width: 90%;
 	}
-	.photo-box {
-		margin-top: 60rpx;
-		width: 40px;
-		height: 40px;
-		background: red;
-		line-height: 40\px;
-		top: 20rpx;
-		right: 110rpx;
-		.photo-icon{
-			font-size: 40px;
-		}
-	}
+
 	.advertising-box{
 		width: 90%;
-		margin-top: 10px;
+		margin-top: 10rpx;
 		swiper {
 			height: calc(750rpx / 3); //calc(屏幕宽度 / (图片宽度 / 图片高度))
 			
 		}
-		
-
 	}
-	.card-header{
-		background: red;
-		display: flex;
-		.card-one{
-			.img{
-				width: 100rpx;
-				height: 100rpx;
+	.topic-box{
+		width: 100%;
+		background: #FFFFFF;
+		.topic-list{
+			overflow: hidden;
+			height: 200rpx;
+			width: 90%;
+			margin: 0 auto;
+			margin-top: 10rpx;
+			.topic-item{
+				height: 240rpx;
+				padding:0 0 10rpx 0 ;
+				border-bottom: 1px solid #999999;
+				color: red;
+				
 			}
+			
+			
 		}
 		
 	}
+	
 }
 
 </style>

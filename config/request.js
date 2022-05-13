@@ -3,7 +3,12 @@ module.exports = (vm) => {
     // 初始化请求配置
     uni.$u.http.setConfig((config) => {
         /* config 为默认全局配置*/
-        config.baseURL = 'http://127.0.0.1:8000'; /* 根域名 */
+		// #ifdef H5
+        config.baseURL = '/api'; /* 根域名 */
+		// #endif
+		// #ifndef H5
+		config.baseURL = 'http://localhost:5000'; /* 根域名 */
+		// #endif
         return config
     })
 	

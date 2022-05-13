@@ -4,7 +4,7 @@
 		<view class="chat-body">
 			<block v-for="(item, index) in chatList" :key="index">
 				<view class="chat-one chat-one-left" v-if="!item.isMe">
-					<image src="../../static/img/2.png" class="chat-face" mode="" />
+					<image src="" class="chat-face" mode="" />
 					<view class="chat-box">
 						<view class="chat-sender">知心姐姐</view>
 						<view class="chat-content" v-if="item.type === 'txt'">{{ item.content }}</view>
@@ -12,7 +12,7 @@
 					</view>
 				</view>
 				<view v-else class="chat-one chat-one-right">
-					<image src="../../static/img/4.webp" class="chat-face" />
+					<image src="" class="chat-face" />
 					<view class="chat-box">
 						<view class="chat-content" v-if="item.type === 'txt'">{{ item.content }}</view>
 					</view>
@@ -23,7 +23,7 @@
 		<!-- 聊天输入 -->
 		<view class="chat-footer">
 			<input class="msg-input" type="text" v-model="myInput"/>
-			<image src="../../static/img/image.png" @click="choseImgAndSend()" class="img-chose" />
+			<image src="" @click="choseImgAndSend()" class="img-chose" />
 			<view class="send-btn" @click="sendMsg">发送</view>
 		</view>
 	</scroll-view>
@@ -43,7 +43,7 @@ export default {
 				{
 					isMe: false,
 					type: 'img',
-					content: '/static/img/1.png'
+					content: ''
 				},
 				{
 					isMe: true,
@@ -53,7 +53,7 @@ export default {
 				{
 					isMe: true,
 					type: 'img',
-					content: '/static/img/2.png'
+					content: ''
 				}
 			],
 			//要发送的文字

@@ -36,7 +36,7 @@
   background: #f0f0f0;
 }
 .list-box .search-box {
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 10rpx;
 }
 .list-box .content-box {
@@ -53,7 +53,7 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 10rpx;
   padding: 15rpx;
 }

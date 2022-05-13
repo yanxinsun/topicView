@@ -5,8 +5,8 @@
 		</view>
 		<view class="search-history-list">
 			<u-list @scrolltolower="scrolltolower">
-				<u-list-item v-for="(item, index) in indexList" :key="index">
-					<u-cell :title="`列表长度-${index + 1}`">
+				<u-list-item v-for="(item, index) in historyArr" :key="index">
+					<u-cell :title="item" @click="toList(item)">
 					</u-cell>
 				</u-list-item>
 			</u-list>
@@ -21,6 +21,7 @@ export default {
 		return {
 			indexList: [],
 			searchKeyword:"",
+			historyArr:[],
 			urls: [
 				'https://cdn.uviewui.com/uview/album/1.jpg',
 				'https://cdn.uviewui.com/uview/album/2.jpg',
@@ -37,8 +38,23 @@ export default {
 	},
 	onLoad() {
 		this.loadmore();
+		this.getHistory();
 	},
 	methods: {
+		//获取历史搜索记录
+		getHistory(){
+			//读取缓存
+			const history = uni.getStorageSync('historyKey');
+			if(history){
+				this.historyArr = history
+			}
+		},
+		//点击历史跳转
+		toList(opt){
+			uni.navigateTo({
+				url:'/subpages/list/list?searchKey='+ opt
+			})
+		},
 		scrolltolower() {
 			this.loadmore();
 		},
@@ -50,8 +66,15 @@ export default {
 			}
 		},
 		toSearchPage(){
+			//数组内是否有重复，没有写入，有下一步
+			const isSet = this.historyArr.indexOf(this.searchKeyword)
+			if(isSet == -1){
+				this.historyArr.unshift(this.searchKeyword)
+			}
+			//写入缓存
+			uni.setStorageSync('historyKey',this.historyArr);
 			uni.navigateTo({
-				url:'/subpages/list/list'
+				url:'/subpages/list/list?searchKey='+this.searchKeyword
 			})
 		}
 		
