@@ -72,20 +72,20 @@
         "enable" : false
     },
     "h5" : {
-		"devServer": {
-			"port": 8080, //浏览器运行端口
-			"disableHostCheck": true, //设置跳过host检查
-			"proxy": {
-				"/api": {
-					"target": "http://localhost:5000", //目标接口域名
-					"changeOrigin": true, //是否跨域
-					"secure": false, // 设置支持https协议的代理
-					"pathRewrite": {
-						"^/api": ""
-					}
-				}
-			}
-		}
+        "devServer" : {
+            "port" : 8080, //浏览器运行端口
+            "disableHostCheck" : true, //设置跳过host检查
+            "proxy" : {
+                "/api" : {
+                    "target" : "http://8.142.168.153:5000", //目标接口域名
+                    "changeOrigin" : true, //是否跨域
+                    "secure" : false, // 设置支持https协议的代理
+                    "pathRewrite" : {
+                        "^/api" : ""
+                    }
+                }
+            }
+        },
+        "domain" : "ssyyxx.xyz"
     }
-	
 }

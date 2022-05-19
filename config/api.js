@@ -10,3 +10,7 @@ const http = uni.$u.http
 export const postTopicTitle = (params, config = {}) => http.post('/topic/title', params, config)
 //获取首页热门列表
 export const postTopicHot = (params, config = {}) => http.post('/topic/hot', params, config)
+//获取分类列表
+export const getClassifyList = (params,config = {}) => http.get('/classify',params,config)
+//通过id获取题目
+export const getTopicById = (params,config = {}) => http.post('/topic/content',params,config)

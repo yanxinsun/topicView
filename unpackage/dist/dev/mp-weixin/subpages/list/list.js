@@ -96,22 +96,22 @@ var components
 try {
   components = {
     uSearch: function() {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-search/u-search.vue */ 233))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-search/u-search.vue */ 259))
     },
     uSticky: function() {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-sticky/u-sticky */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-sticky/u-sticky")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-sticky/u-sticky.vue */ 241))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-sticky/u-sticky */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-sticky/u-sticky")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-sticky/u-sticky.vue */ 267))
     },
     uTabs: function() {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabs/u-tabs */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabs/u-tabs")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabs/u-tabs.vue */ 249))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-tabs/u-tabs */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-tabs/u-tabs")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-tabs/u-tabs.vue */ 275))
     },
     uList: function() {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-list/u-list */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-list/u-list")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-list/u-list.vue */ 210))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-list/u-list */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-list/u-list")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-list/u-list.vue */ 220))
     },
     uListItem: function() {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-list-item/u-list-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-list-item/u-list-item")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-list-item/u-list-item.vue */ 218))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-list-item/u-list-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-list-item/u-list-item")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-list-item/u-list-item.vue */ 228))
     },
     uEmpty: function() {
-      return Promise.all(/*! import() | node-modules/uview-ui/components/u-empty/u-empty */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-empty/u-empty")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-empty/u-empty.vue */ 257))
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-empty/u-empty */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-empty/u-empty")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-empty/u-empty.vue */ 283))
     }
   }
 } catch (e) {
@@ -220,68 +220,73 @@ var _api = __webpack_require__(/*! @/config/api.js */ 144);function _interopRequ
 {
   data: function data() {
     return {
-      topicList: [],
-      urls: [
-      'https://cdn.uviewui.com/uview/album/1.jpg',
-      'https://cdn.uviewui.com/uview/album/2.jpg',
-      'https://cdn.uviewui.com/uview/album/3.jpg',
-      'https://cdn.uviewui.com/uview/album/4.jpg',
-      'https://cdn.uviewui.com/uview/album/5.jpg',
-      'https://cdn.uviewui.com/uview/album/6.jpg',
-      'https://cdn.uviewui.com/uview/album/7.jpg',
-      'https://cdn.uviewui.com/uview/album/8.jpg',
-      'https://cdn.uviewui.com/uview/album/9.jpg',
-      'https://cdn.uviewui.com/uview/album/10.jpg'],
-
-      list1: [
-      {
-        name: '全部' },
-
-      {
-        name: '前端' },
-
-      {
-        name: '后端' },
-
-      {
-        name: 'html' },
-
-      {
-        name: 'css' },
-
-      {
-        name: 'es6' }],
-
-
-      searchKeyword: '' };
-
+      topicList: [], //题目列表
+      classifyList: [], //分类列表
+      searchKeyword: '', //查询关键字
+      pageNum: 1, //默认第一页
+      pageSize: 10, //默认10条
+      classify: 1, //默认分类为全部
+      isHaveTopic: false //是否还有剩余数据
+    };
   },
   computed: _objectSpread({},
   (0, _vuex.mapState)(['userName'])),
 
   onLoad: function onLoad(option) {
-    // this.loadmore();
     this.searchKeyword = option.searchKey;
+    this.getClassify();
     this.toSearchTitle();
-    console.log('333333', this.topicList.length);
   },
   methods: _objectSpread(_objectSpread({},
   (0, _vuex.mapActions)(['login', 'logout'])), {}, {
     //根据搜索标题查询题目及内容
-    toSearchTitle: function toSearchTitle(searchKeyword) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var topicResp;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  (0, _api.postTopicTitle)({ title: _this.searchKeyword, custom: { auth: true } }));case 2:topicResp = _context.sent;
-                console.log('topicResp', topicResp);
-                _this.topicList = topicResp.topicInfo;case 5:case "end":return _context.stop();}}}, _callee);}))();
+    toSearchTitle: function toSearchTitle() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var topicResp;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
+                  (0, _api.postTopicTitle)({
+                    title: _this.searchKeyword ? _this.searchKeyword : '',
+                    classify: _this.classify,
+                    pageNum: _this.pageNum,
+                    pageSize: _this.pageSize }));case 2:topicResp = _context.sent;
+
+                _this.topicList = topicResp.topicInfo;case 4:case "end":return _context.stop();}}}, _callee);}))();
     },
     scrolltolower: function scrolltolower() {
+      this.pageNum++;
       this.loadmore();
     },
-    loadmore: function loadmore() {
-      for (var i = 0; i < 30; i++) {
-        this.indexList.push({
-          url: this.urls[uni.$u.random(0, this.urls.length - 1)] });
+    //下拉获取分页数据
+    loadmore: function loadmore() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var res;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:if (!(
+                _this2.isHaveTopic == false)) {_context2.next = 5;break;}_context2.next = 3;return (
+                  (0, _api.postTopicTitle)({
+                    title: _this2.searchKeyword,
+                    classify: _this2.classify,
+                    pageNum: _this2.pageNum,
+                    pageSize: _this2.pageSize }));case 3:res = _context2.sent;
 
-      }
+                if (res.topicInfo.length != 0) {
+                  _this2.topicList = _this2.topicList.concat(res.topicInfo);
+                } else {
+                  _this2.isHaveTopic = true;
+                }case 5:case "end":return _context2.stop();}}}, _callee2);}))();
+
+
+    },
+    //获取分类信息
+    getClassify: function getClassify() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var classifyListResp;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+                  (0, _api.getClassifyList)());case 2:classifyListResp = _context3.sent;
+                _this3.classifyList = classifyListResp.classifyInfo;
+                console.log(classifyListResp);case 5:case "end":return _context3.stop();}}}, _callee3);}))();
+    },
+    //根据分类查询题目
+    getTopicByClassify: function getTopicByClassify(item) {var _this4 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee4() {var classifyListResp;return _regenerator.default.wrap(function _callee4$(_context4) {while (1) {switch (_context4.prev = _context4.next) {case 0:
+                _this4.classify = item.id;_context4.next = 3;return (
+                  (0, _api.postTopicTitle)({ title: _this4.searchKeyword, classify: item.id }));case 3:classifyListResp = _context4.sent;
+                _this4.topicList = classifyListResp.topicInfo;case 5:case "end":return _context4.stop();}}}, _callee4);}))();
+    },
+    //跳转题目详情页
+    toTopicContent: function toTopicContent(option) {
+      uni.navigateTo({
+        url: '/subpages/content/content?id=' + option.id });
+
     } }) };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

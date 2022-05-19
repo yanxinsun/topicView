@@ -61,7 +61,7 @@
 		{
 			"path": "list/list",
 			"style": {
-				"navigationBarTitleText": "list",
+				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
 		} 
@@ -72,7 +72,16 @@
 				"enablePullDownRefresh": false
 			}
 		
-		}]
+		}    ,{
+                    "path" : "content/content",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -81,10 +90,10 @@
 		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar": {
-		"color": "#7A7E83",
-		"selectedColor": "#1353c4",
+		"color": "#333333",
+		"selectedColor": "#ffffff",
 		"borderStyle": "black",
-		"backgroundColor": "#ffda58",
+		"backgroundColor": "#1e80ff",
 		"list": [{
 			"pagePath": "pages/index/index",
 			"text": "首页"

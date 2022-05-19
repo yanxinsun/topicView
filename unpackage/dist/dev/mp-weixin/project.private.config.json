@@ -9,7 +9,7 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/index/index",
+          "pathName": "subpages/history/history",
           "query": "",
           "launchMode": "default",
           "scene": null

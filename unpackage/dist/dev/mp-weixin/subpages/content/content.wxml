@@ -1,0 +1,1 @@
+<view class="topic-content"><view class="topic-title">{{''+topicInfo.title+''}}</view><view class="topic-content">{{''+topicInfo.content+''}}</view></view>

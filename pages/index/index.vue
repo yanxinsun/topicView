@@ -1,35 +1,31 @@
 <template>
 	<view class="box">
-		<view class="logo-box"></view>
+		<uniNavBar :titleName="topData.address"></uniNavBar>
+		<!-- input搜索框部分 -->
 		<view class="search-box">
 			<view class="u-demo-block">
-					<view
-						class="u-demo-block__content"
-						style="margin-top: 15px;"
-					>
-						<!-- 注意：由于兼容性差异，如果需要使用前后插槽，nvue下需使用u--input，非nvue下需使用u-input -->
-						<u--input placeholder="请输入搜索内容" v-model="searchKeyword" @focus="toHistoryList()"></u--input>
-							<template slot="suffix">
-								<u-icon class="photo-icon" name="photo" @click.stop="checkPhoto()"></u-icon>
-							</template>
-					</view>
+				<view class="u-demo-block__content">
+					<template slot="suffix">
+						<u-icon class="photo-icon" name="photo" @click.stop="checkPhoto()"></u-icon>
+					</template>
 				</view>
+			</view>
 		</view>
 		<view class="advertising-box">
-			<swiper autoplay="true" :interval="2000" :duration="500" circular="true" indicator-active-color="#fff" easing-function="true" indicator-dots='true'>
-				<swiper-item v-for="(item, index) in bannerList" :key="index">
-					<navigator  open-type="navigate" :url="'/pages/webview/webview?url='+encodeURI(item.link)">
-						<image :src="item.url"></image>
-					</navigator>
-					
-				</swiper-item>
-			</swiper>
+			<u-swiper
+				:list="bannerList"
+				keyName="url"
+				showTitle
+				circular
+			    ></u-swiper>
 		</view>
 		<view class="topic-box">
 			<u-list class="topic-list">
-				<u-list-item v-for="(item, index) in topicList" :key="index" class="topic-item">
-					<text class="topic-title" :lines="2" :text="">{{item.title}}</text>
-					<text class="topic-content" :lines="3" :text="item.content"></text>
+				<u-list-item v-for="(item, index) in topicList" :key="index">
+					<u-cell :title="item.title">
+						<u-avatar>{{item.content}}</u-avatar>
+						<text></text>
+					</u-cell>
 				</u-list-item>
 			</u-list>
 
@@ -40,28 +36,35 @@
 </template>
 
 <script>
-import Child from '@/components/child.vue';
+// import Child from '@/components/child.vue';
 import { postMenu, getMenu,postTopicHot } from '@/config/api.js';
+import uniNavBar from "../../components/topBar.vue"
 export default {
 	data() {
 		return {
-			title: 'Hello',
+			topData:{
+				address:"地址"
+			},
 			searchKeyword: '',
 			bannerList: [{
-				"url":"http://img.ssyyxx.xyz/topic/1.png",
-				"link":"http://www.baidu.com"
+				"url":"http://www.ssyyxx.xyz/images/1.png",
+				"link":"http://www.baidu.com",
+				title: '昨夜星辰昨夜风，画楼西畔桂堂东',
 			},
 			{
-				"url":"http://img.ssyyxx.xyz/topic/2.png",
-				"link":"http://www.baidu.com"
+				"url":"http://www.ssyyxx.xyz/images/2.png",
+				"link":"http://www.baidu.com",
+				title: '昨夜星辰昨夜风，画楼西畔桂堂东',
 			},
 			{
-				"url":"http://img.ssyyxx.xyz/topic/3.png",
-				"link":"http://www.baidu.com"
+				"url":"http://www.ssyyxx.xyz/images/3.png",
+				"link":"http://www.baidu.com",
+				title: '昨夜星辰昨夜风，画楼西畔桂堂东',
 			},
 			{
-				"url":"http://img.ssyyxx.xyz/topic/4.png",
-				"link":"http://www.baidu.com"
+				"url":"http://www.ssyyxx.xyz/images/4.png",
+				"link":"http://www.baidu.com",
+				title: '昨夜星辰昨夜风，画楼西畔桂堂东',
 			},
 			],
 			tips: '',
@@ -72,22 +75,16 @@ export default {
 	},
 
 	components: {
-		Child
+		// Child
+		uniNavBar
 	},
 	onShow() {
-		console.log('onshow');
 	},
 	onPullDownRefresh() {
-		console.log('页面下啦');
 	},
 	onResize() {
-		console.log('页面大小i变化');
 	},
 	onLoad() {
-		console.log(getCurrentPages());
-		uni.$on('quanju', name => {
-			this.title = name;
-		});
 		this.topicListHot()
 	},
 	watch: {
@@ -133,15 +130,18 @@ export default {
 
 <style lang="scss" scoped>
 .box {
-	padding-top: 70rpx;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	
 	.search-box {
 		width: 90%;
+		.u-demo-block{
+			width: 70%;
+			background: red;
+		}
 	}
-
 	.advertising-box{
 		width: 90%;
 		margin-top: 10rpx;
@@ -149,24 +149,19 @@ export default {
 			height: calc(750rpx / 3); //calc(屏幕宽度 / (图片宽度 / 图片高度))
 			
 		}
+		
 	}
 	.topic-box{
 		width: 100%;
 		background: #FFFFFF;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		.topic-list{
 			overflow: hidden;
 			height: 200rpx;
 			width: 90%;
-			margin: 0 auto;
 			margin-top: 10rpx;
-			.topic-item{
-				height: 240rpx;
-				padding:0 0 10rpx 0 ;
-				border-bottom: 1px solid #999999;
-				color: red;
-				
-			}
-			
 			
 		}
 		

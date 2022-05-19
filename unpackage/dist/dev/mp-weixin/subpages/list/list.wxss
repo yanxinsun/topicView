@@ -34,15 +34,35 @@
   -webkit-flex-direction: column;
           flex-direction: column;
   background: #f0f0f0;
+  width: 100%;
 }
 .list-box .search-box {
+  width: 100%;
+  margin: 0 auto;
+  height: 90rpx;
+  line-height: 90rpx;
   background: #ffffff;
-  padding: 10rpx;
+}
+.list-box .search-box .search-text {
+  width: 90%;
+  background: #ffffff;
+  margin: 0 auto !important;
 }
 .list-box .content-box {
   width: 95%;
   margin: 0 auto;
   margin-top: 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  /* 垂直居中 */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
 }
 .list-box .content-box .content-list {
   margin-bottom: 20rpx;

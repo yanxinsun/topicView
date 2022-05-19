@@ -2,10 +2,12 @@
   "navigationStyle": "custom",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "u--input": "/node-modules/uview-ui/components/u--input/u--input",
     "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon",
+    "u-swiper": "/node-modules/uview-ui/components/u-swiper/u-swiper",
     "u-list": "/node-modules/uview-ui/components/u-list/u-list",
     "u-list-item": "/node-modules/uview-ui/components/u-list-item/u-list-item",
-    "child": "/components/child"
+    "u-cell": "/node-modules/uview-ui/components/u-cell/u-cell",
+    "u-avatar": "/node-modules/uview-ui/components/u-avatar/u-avatar",
+    "uni-nav-bar": "/components/topBar"
   }
 }

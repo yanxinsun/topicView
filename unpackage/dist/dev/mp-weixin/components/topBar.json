@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "u-sticky": "/node-modules/uview-ui/components/u-sticky/u-sticky",
+    "u--input": "/node-modules/uview-ui/components/u--input/u--input"
+  },
+  "component": true
+}

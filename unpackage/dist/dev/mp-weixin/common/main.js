@@ -101,22 +101,33 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
-
 {
+  globalData: {
+    pageName: 'index',
+    phoneHeight: "" },
+
+
   onLaunch: function onLaunch() {
-    console.log('App Launch');
+    this.getPhoneHeight();
   },
   onShow: function onShow() {
-    console.log('App Show');
   },
   onHide: function onHide() {
-    console.log('App Hide');
   },
-  onPageNotFound: function onPageNotFound() {
-    uni.navigateTo({
-      url: '/pages/404/404' });
+  methods: {
+    onPageNotFound: function onPageNotFound() {
+      uni.navigateTo({
+        url: '/pages/404/404' });
 
-  } };exports.default = _default;
+    },
+    getPhoneHeight: function getPhoneHeight() {
+      var that = this;
+      uni.getSystemInfo({
+        success: function success(res) {
+          that.globalData.phoneHeight = res.statusBarHeight;
+        } });
+
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

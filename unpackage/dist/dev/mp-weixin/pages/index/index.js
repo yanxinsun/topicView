@@ -84,9 +84,63 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!/Users/sunyanxin/www/topicView/topicView/pages/index/index.vue?vue&type=template&id=57280228&scoped=true& ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js):\nSyntaxError: Unexpected token (1:1330)\n    at Parser._raise (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:746:17)\n    at Parser.raiseWithData (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:739:17)\n    at Parser.raise (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:733:17)\n    at Parser.unexpected (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:8807:16)\n    at Parser.parseExprAtom (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:10130:20)\n    at Parser.parseExprSubscripts (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:9656:23)\n    at Parser.parseMaybeUnary (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:9636:21)\n    at Parser.parseExprOps (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:9506:23)\n    at Parser.parseMaybeConditional (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:9479:23)\n    at Parser.parseMaybeAssign (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:9434:21)\n    at Parser.parseObjectProperty (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:10586:101)\n    at Parser.parseObjPropValue (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:10611:101)\n    at Parser.parseObjectMember (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:10535:10)\n    at Parser.parseObj (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:10448:25)\n    at Parser.parseExprAtom (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:10055:28)\n    at Parser.parseExprSubscripts (/Applications/HBuilderX.app/Contents/HBuilderX/plugins/uniapp-cli/node_modules/@babel/parser/lib/index.js:9656:23)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
+var components
+try {
+  components = {
+    uIcon: function() {
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-icon/u-icon.vue */ 203))
+    },
+    uSwiper: function() {
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-swiper/u-swiper.vue */ 212))
+    },
+    uList: function() {
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-list/u-list */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-list/u-list")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-list/u-list.vue */ 220))
+    },
+    uListItem: function() {
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-list-item/u-list-item */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-list-item/u-list-item")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-list-item/u-list-item.vue */ 228))
+    },
+    uCell: function() {
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-cell/u-cell */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-cell/u-cell")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-cell/u-cell.vue */ 236))
+    },
+    uAvatar: function() {
+      return Promise.all(/*! import() | node-modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! uview-ui/components/u-avatar/u-avatar.vue */ 244))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+}
+var recyclableRender = false
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -153,31 +207,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var _api = __webpack_require__(/*! @/config/api.js */ 144);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/topBar */ "components/topBar").then((function () {return resolve(__webpack_require__(/*! ../../components/topBar.vue */ 252));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
-
-
-
-var _api = __webpack_require__(/*! @/config/api.js */ 144);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var Child = function Child() {__webpack_require__.e(/*! require.ensure | components/child */ "components/child").then((function () {return resolve(__webpack_require__(/*! @/components/child.vue */ 226));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 {
   data: function data() {
     return {
-      title: 'Hello',
+      topData: {
+        address: "地址" },
+
       searchKeyword: '',
       bannerList: [{
-        "url": "http://img.ssyyxx.xyz/topic/1.png",
-        "link": "http://www.baidu.com" },
+        "url": "http://www.ssyyxx.xyz/images/1.png",
+        "link": "http://www.baidu.com",
+        title: '昨夜星辰昨夜风，画楼西畔桂堂东' },
 
       {
-        "url": "http://img.ssyyxx.xyz/topic/2.png",
-        "link": "http://www.baidu.com" },
+        "url": "http://www.ssyyxx.xyz/images/2.png",
+        "link": "http://www.baidu.com",
+        title: '昨夜星辰昨夜风，画楼西畔桂堂东' },
 
       {
-        "url": "http://img.ssyyxx.xyz/topic/3.png",
-        "link": "http://www.baidu.com" },
+        "url": "http://www.ssyyxx.xyz/images/3.png",
+        "link": "http://www.baidu.com",
+        title: '昨夜星辰昨夜风，画楼西畔桂堂东' },
 
       {
-        "url": "http://img.ssyyxx.xyz/topic/4.png",
-        "link": "http://www.baidu.com" }],
+        "url": "http://www.ssyyxx.xyz/images/4.png",
+        "link": "http://www.baidu.com",
+        title: '昨夜星辰昨夜风，画楼西畔桂堂东' }],
 
 
       tips: '',
@@ -188,22 +245,16 @@ var _api = __webpack_require__(/*! @/config/api.js */ 144);function _interopRequ
   },
 
   components: {
-    Child: Child },
+    // Child
+    uniNavBar: uniNavBar },
 
   onShow: function onShow() {
-    console.log('onshow');
   },
   onPullDownRefresh: function onPullDownRefresh() {
-    console.log('页面下啦');
   },
   onResize: function onResize() {
-    console.log('页面大小i变化');
   },
-  onLoad: function onLoad() {var _this = this;
-    console.log(getCurrentPages());
-    uni.$on('quanju', function (name) {
-      _this.title = name;
-    });
+  onLoad: function onLoad() {
     this.topicListHot();
   },
   watch: {
@@ -237,11 +288,11 @@ var _api = __webpack_require__(/*! @/config/api.js */ 144);function _interopRequ
     },
 
     //获取热门列表
-    topicListHot: function topicListHot() {var _this2 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var topicResp;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+    topicListHot: function topicListHot() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var topicResp;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
                 console.log('获取热门列表');_context.next = 3;return (
                   (0, _api.postTopicHot)({ pageNum: 1, pageSize: 10, custom: { auth: true } }));case 3:topicResp = _context.sent;
                 console.log('topicResp', topicResp);
-                _this2.topicList = topicResp.topicInfo;case 6:case "end":return _context.stop();}}}, _callee);}))();
+                _this.topicList = topicResp.topicInfo;case 6:case "end":return _context.stop();}}}, _callee);}))();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
